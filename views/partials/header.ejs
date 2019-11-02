@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NodeJS | QuickStart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">NodeJS | QuickStart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <% if(currentUser){ %>
+                <span class="text-light"><%= currentUser.username %></span>
+                <li class="nav-item ml-3">
+                    <a href="/Logout" class="btn btn-outline-light">Logout</a>
+                </li>
+                <% }else{ %>
+                <li class="nav-item">
+                    <a href="/login" class="btn btn-outline-light">Login</a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a href="/register" class="btn btn-outline-light">Register</a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+    <div class="container message">
+        <% if(danger && danger.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= danger %>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+        <% } %>
+        <% if(warning && warning.length > 0){ %>
+        <div class="alert alert-warning" role="alert">
+            <%= warning %>
+        </div>
+        <% } %>
+    </div>
